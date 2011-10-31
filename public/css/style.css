@@ -1,0 +1,35 @@
+@-moz-keyframes nodester{0%{-webkit-transform:translate(0,10px) scale(1);-moz-transform:translate(0,10px) scale(1);transform:translate(0,10px) scale(1)}
+100%{-webkit-transform:translate(0,-10px) scale(.95);-moz-transform:translate(0,-10px) scale(.95);transform:translate(0,-10px) scale(.95)}
+}@-webkit-keyframes nodester{0%{-webkit-transform:translate(0,10px) scale(1);-moz-transform:translate(0,10px) scale(1);transform:translate(0,10px) scale(1)}
+100%{-webkit-transform:translate(0,-10px) scale(.95);-moz-transform:translate(0,-10px) scale(.95);transform:translate(0,-10px) scale(.95)}
+}@-o-keyframes nodester{0%{-webkit-transform:translate(0,10px) scale(1);-moz-transform:translate(0,10px) scale(1);transform:translate(0,10px) scale(1)}
+100%{-webkit-transform:translate(0,-10px) scale(.95);-moz-transform:translate(0,-10px) scale(.95);transform:translate(0,-10px) scale(.95)}
+}@-ms-keyframes nodester{0%{-webkit-transform:translate(0,10px) scale(1);-moz-transform:translate(0,10px) scale(1);transform:translate(0,10px) scale(1)}
+100%{-webkit-transform:translate(0,-10px) scale(.95);-moz-transform:translate(0,-10px) scale(.95);transform:translate(0,-10px) scale(.95)}
+}@keyframes nodester{0%{-webkit-transform:translate(0,10px) scale(1);-moz-transform:translate(0,10px) scale(1);transform:translate(0,10px) scale(1)}
+100%{-webkit-transform:translate(0,-10px) scale(.95);-moz-transform:translate(0,-10px) scale(.95);transform:translate(0,-10px) scale(.95)}
+}@-moz-keyframes rotate{0%{-webkit-transform:rotate(0);-moz-transform:rotate(0);transform:rotate(0)}
+100%{-webkit-transform:rotate(70deg);-moz-transform:rotate(70deg);transform:rotate(70deg)}
+}@-webkit-keyframes rotate{0%{-webkit-transform:rotate(0);-moz-transform:rotate(0);transform:rotate(0)}
+100%{-webkit-transform:rotate(70deg);-moz-transform:rotate(70deg);transform:rotate(70deg)}
+}@-o-keyframes rotate{0%{-webkit-transform:rotate(0);-moz-transform:rotate(0);transform:rotate(0)}
+100%{-webkit-transform:rotate(70deg);-moz-transform:rotate(70deg);transform:rotate(70deg)}
+}@-ms-keyframes rotate{0%{-webkit-transform:rotate(0);-moz-transform:rotate(0);transform:rotate(0)}
+100%{-webkit-transform:rotate(70deg);-moz-transform:rotate(70deg);transform:rotate(70deg)}
+}@keyframes rotate{0%{-webkit-transform:rotate(0);-moz-transform:rotate(0);transform:rotate(0)}
+100%{-webkit-transform:rotate(70deg);-moz-transform:rotate(70deg);transform:rotate(70deg)}
+}body{padding:80px;font:14px "Lucida Grande",Helvetica,Arial,sans-serif}
+a{color:#00b7ff}
+#box_login #loading{display:none;position:absolute;width:50px;height:50px;background-image:url("/img/ajax-loader.gif");background-repeat:no-repeat}
+.letter{position:absolute;width:20px;height:20px;cursor:pointer}
+#users,#board{-webkit-user-select:none;-moz-user-select:none;user-select:none}
+#nodester{position:absolute;top:20px;left:20px;width:80px;height:80px;-webkit-animation:nodester 4s infinite alternate ease-in-out;-moz-animation:nodester 4s infinite alternate ease-in-out;animation:nodester 4s infinite alternate ease-in-out}
+#users{position:absolute;color:#cdc9c9;top:20px;right:20px}
+.user{margin-bottom:5px}
+#rotate{width:100%;height:100%;background-image:url("/img/nodester.png");background-repeat:no-repeat;}
+#rotate:hover{-webkit-animation:rotate 3s infinite alternate ease-in-out;-moz-animation:rotate 3s infinite alternate ease-in-out;animation:rotate 3s infinite alternate ease-in-out}
+#box_login{border:1px dotted #cdc9c9;width:240px;padding:10px;display:block;margin-left:auto;margin-right:auto;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px}
+form input.rounded{border:1px solid #86c9ef;outline:0;font:14px arial,sans-serif;color:#445135;width:212px;height:18px;padding:10px 10px 10px 10px;margin-bottom:10px;-webkit-box-shadow:2px 2px 3px #666;-moz-box-shadow:2px 2px 3px #666;box-shadow:2px 2px 3px #666;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;}
+form input.rounded:focus{border-color:#393}
+form input.rounded_error{border-color:#f00;-webkit-transform:rotate(-2deg);-moz-transform:rotate(-2deg);transform:rotate(-2deg)}
+form input#buttom{padding-top:2px;margin-left:130px;text-align:middle;width:100px;height:22px;color:#fff;cursor:pointer;border:1px solid #408bb6;background:#59a5d1;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;-webkit-transform:rotate(2deg);-moz-transform:rotate(2deg);transform:rotate(2deg)}

@@ -1,0 +1,96 @@
+@import 'animations'
+
+body
+	padding 80px
+	font 14px "Lucida Grande", Helvetica, Arial, sans-serif
+a
+	color #00B7FF
+
+#box_login #loading
+	display none
+	position absolute
+	width 50px
+	height 50px
+	background-image url('/img/ajax-loader.gif')
+	background-repeat no-repeat
+
+.letter
+	position absolute
+	width 20px
+	height 20px
+	cursor pointer
+
+#users
+#board
+	user-select none
+
+#nodester
+	position absolute
+	top 20px
+	left 20px
+	width 80px
+	height 80px
+	animation nodester 4s infinite alternate ease-in-out
+
+#users
+	position absolute
+	color #cdc9c9
+	top 20px
+	right 20px
+
+.user
+	margin-bottom 5px
+		
+#rotate
+	width 100%
+	height 100%
+	background-image url('/img/nodester.png')
+	background-repeat no-repeat
+
+	&:hover
+		animation rotate 3s infinite alternate ease-in-out
+
+#box_login
+	border 1px dotted #cdc9c9
+	width 240px
+	padding 10px
+	display block
+	margin-left auto
+	margin-right auto
+	border-radius 6px
+
+form
+	input
+		&.rounded
+			border 1px solid #86c9ef
+			outline 0
+			font 14px arial,sans-serif
+			color #445135
+			width 212px
+			height 18px
+			padding 10px 10px 10px 10px
+			margin-bottom 10px
+			box-shadow 2px 2px 3px #666
+			border-radius 4px
+
+			&:focus
+				border-color #339933
+
+		&.rounded_error
+			border-color #ff0000
+			transform rotate(-2deg)
+
+		&#buttom
+			padding-top 2px
+			margin-left 130px
+			text-align middle
+			width 100px
+			height 22px
+			color #fff
+			cursor pointer
+			border 1px solid #408bb6
+			background #59a5d1
+
+			border-radius 3px
+			transform rotate(2deg)
+

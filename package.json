@@ -1,0 +1,14 @@
+{
+    "name": "gotik"
+  , "description": "Gotik test node app"
+  , "version": "0.0.1"
+  , "private": true
+  , "dependencies": {
+      "express": ">= 2.2.0"
+    , "stylus": ">= 0.0.1"
+    , "nib": ">= 0.0.1"
+    , "jade": ">= 0.0.1"
+		, "socket.io": ">=0.7.1"
+  }
+  , "author": "Juan Pinilla"
+}
