@@ -44,17 +44,19 @@ app.configure(function(){
   app.use(express.static(__dirname + '/public'));
 });
 
-app.configure('development', function(){
+/*app.configure('development', function(){
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
 });
 
 app.configure('production', function(){
   app.use(express.errorHandler()); 
-});
+});*/
 
 // IO
 var users = {};
 var io = require('socket.io').listen(app);
+io.set('log level', 1);
+
 io.sockets.on('connection', function (socket) {
 
   socket.on('adduser', function(user){
@@ -75,6 +77,26 @@ io.sockets.on('connection', function (socket) {
 
   socket.on('handle', function (data) {
     //TOOD: Update mongodb with data
+    Data.findById(data.obj[0], function(err, p) {
+			p.x=data.obj[1];
+			p.y=data.obj[2];
+			p.save();
+			/*
+      if (!p)
+        return next(new Error('Could not load Document'));
+      else {
+        // do your updates here
+        p.x=data.obj[1];
+        p.y=data.obj[2];
+
+        p.save(function(err) {
+          if (err)
+            console.log('error')
+          else
+            console.log('success')
+        });
+      }*/
+    });
     socket.broadcast.emit('handle', data);
   });
 
@@ -94,4 +116,4 @@ app.get('/', function(req, res){
   });
 });
 
-app.listen(3000);
+app.listen(12364);
