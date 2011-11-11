@@ -76,26 +76,10 @@ io.sockets.on('connection', function (socket) {
   });
 
   socket.on('handle', function (data) {
-    //TOOD: Update mongodb with data
     Data.findById(data.obj[0], function(err, p) {
 			p.x=data.obj[1];
 			p.y=data.obj[2];
 			p.save();
-			/*
-      if (!p)
-        return next(new Error('Could not load Document'));
-      else {
-        // do your updates here
-        p.x=data.obj[1];
-        p.y=data.obj[2];
-
-        p.save(function(err) {
-          if (err)
-            console.log('error')
-          else
-            console.log('success')
-        });
-      }*/
     });
     socket.broadcast.emit('handle', data);
   });
@@ -116,4 +100,4 @@ app.get('/', function(req, res){
   });
 });
 
-app.listen(12364);
+app.listen(3000);

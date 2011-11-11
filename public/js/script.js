@@ -1,3 +1,7 @@
+//alert msg
+var e1='Nick taken :(';
+var e2='¬¬"';
+
 var socket = io.connect('http://localhost', {
 	'reconnect': true,
 	'reconnection delay': 500,
@@ -6,9 +10,11 @@ var socket = io.connect('http://localhost', {
 var flag=false;
 
 socket.on('sign', function(data){
-	if(data.state==0)
+	if(data.state==0) {
 		$('#user').addClass('rounded_error');
-	else {
+		err($('.box_login'), e1);
+	} else {
+		$('#alert').hide('slow');
 		flag=true;
 		$('#container').hide('slow', function(){
 				$('#container').remove();
@@ -48,6 +54,13 @@ socket.on('handle', function(data) {
 	$('#'+data.obj[0]).css({ 'left': data.obj[1]+'px', 'top': data.obj[2]+'px'});
 });
 
+function err(obj, msg) {
+	$('#alert').html('<img src="/img/error.png" />'+msg);
+	$('#alert').show();
+	for(var i=0; i<5; i++)
+			obj.animate({"left": '+=12'}, 80).animate({"left": '-=12'}, 80);
+};
+
 $(function(){
 
 	$('#nodester').click(function(){
@@ -59,15 +72,18 @@ $(function(){
 		$('#loading').show();
 		if($('#user').val().trim() == '') {
 			$('#user').addClass('rounded_error');
+			err($('.box_login'), e2);
+			$('#loading').hide();
 		}
 		else {
+			$('#alert').hide('slow');
 			$('#user').removeClass('rounded_error');
 			socket.emit('adduser', $('#user').val());
 		}
 	});
 
 	$("#nodester").draggable();
-	$("#box_login").draggable();
+	$(".box_login").draggable();
 	$("h1").draggable();
 	$("p").draggable();
 

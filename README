@@ -1,6 +1,0 @@
-- Need to fill your moongodb, you can use example (changing letter by letter XD, I have no time to implement a real filler)
-- Put the connection to your mongodb
-- node app.js
-
-It has the nodester ship because I have hosted it there
-Port: 3000
