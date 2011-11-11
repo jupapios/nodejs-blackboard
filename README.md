@@ -1,4 +1,4 @@
-# [Nodejs Blackboard](http://kamikazepanda.com)
+# [Nodejs Blackboard](http://node.kamikazepanda.com)
 
 Nodejs test :P
 
