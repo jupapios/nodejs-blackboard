@@ -12,10 +12,10 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var BoardSchema = new Schema({
-  type  : { type: Number, validate: /[0|1]/, default: 1 },
-  value : { type: String, default: 'A'},
-  x     : { type: Number, default: 10 },
-  y     : { type: Number, default: 10 }
+  type  : { type: Number },
+  value : { type: String },
+  x     : { type: Number },
+  y     : { type: Number }
 });
 
 var db = mongoose.connect('mongodb://localhost/blackboard');

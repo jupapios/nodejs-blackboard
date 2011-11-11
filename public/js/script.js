@@ -1,6 +1,9 @@
 //alert msg
 var e1='Nick taken :(';
 var e2='¬¬"';
+//URL images objects
+var urlimg='/img/objects/'
+var extimg='.png';
 
 var socket = io.connect('http://localhost', {
 	'reconnect': true,
@@ -35,7 +38,12 @@ socket.on('update', function(data) {
 socket.on('objects', function(data){
 
 	data.forEach(function(doc){
-		$('#board').append('<div id="'+doc._id+'" class="letter" style="left: '+doc.x+'px; top: '+doc.y+'px;">' + doc.value + '</div>');
+		var content='';
+		if(doc.type=='0')
+			content='<img src="'+urlimg+doc.value+extimg+'">';
+		if(doc.type=='1')
+			content=doc.value;
+		$('#board').append('<div id="'+doc._id+'" class="letter" style="left: '+doc.x+'px; top: '+doc.y+'px;">' + content + '</div>');
 	});
 
 	$(".letter").draggable({
