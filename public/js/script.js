@@ -5,7 +5,8 @@ var e2='¬¬"';
 var urlimg='/img/objects/'
 var extimg='.png';
 
-var socket = io.connect('http://localhost', {
+
+var socket = io.connect('', {
 	'reconnect': true,
 	'reconnection delay': 500,
 	'max reconnection attempts': 5
