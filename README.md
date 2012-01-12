@@ -2,6 +2,8 @@
 
 Nodejs test :P
 
+[Video http://www.youtube.com/watch?v=bxHfLRWemeg](http://www.youtube.com/watch?v=bxHfLRWemeg)
+
 ## Quick start
 
 * Clone
