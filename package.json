@@ -5,7 +5,10 @@
   , "private": true
   , "dependencies": {
       "express": "2.5.5"
-    , "jade": ">= 0.0.1"
+    , "jade": ">= 0.20.0"
+    , "stylus": ">= 0.22.5"
+    , "nib": ">= 0.3.2"
+    , "socket.io" ">= 0.8.7"
   }
   , "author": "Juan Pinilla"  
 }
