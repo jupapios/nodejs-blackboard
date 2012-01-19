@@ -1,14 +1,11 @@
 {
-    "name": "gotik"
+    "name": "nodejs-blackboard"
   , "description": "Gotik test node app"
-  , "version": "0.0.1"
+  , "version": "0.0.2"
   , "private": true
   , "dependencies": {
-      "express": ">= 2.2.0"
-    , "stylus": ">= 0.0.1"
-    , "nib": ">= 0.0.1"
+      "express": "2.5.5"
     , "jade": ">= 0.0.1"
-		, "socket.io": ">=0.7.1"
   }
-  , "author": "Juan Pinilla"
+  , "author": "Juan Pinilla"  
 }

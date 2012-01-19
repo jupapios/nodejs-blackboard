@@ -6,68 +6,6 @@ body
 a
 	color #00B7FF
 
-.letter
-	position absolute
-	width 20px
-	height 20px
-	cursor pointer
-
-#users
-#board
-	user-select none
-
-#nodester
-	position absolute
-	top 20px
-	left 20px
-	width 80px
-	height 80px
-	animation nodester 4s infinite alternate ease-in-out
-
-#users
-	position absolute
-	color #cdc9c9
-	top 20px
-	right 20px
-
-.user
-	margin-bottom 5px
-		
-#rotate
-	width 100%
-	height 100%
-	background-image url('/img/nodester.png')
-	background-repeat no-repeat
-
-	&:hover
-		animation rotate 3s infinite alternate ease-in-out
-
-.box_login
-	border 1px dotted #cdc9c9
-	width 240px
-	padding 10px
-	display block
-	margin-left auto
-	margin-right auto
-	border-radius 6px
-
-	& #loading
-		display none
-		position absolute
-		width 50px
-		height 50px
-		background-image url('/img/ajax-loader.gif')
-		background-repeat no-repeat
-
-#alert
-	display none
-	margin-bottom 5px
-	border 1px dotted #b22222
-	background rgba(250, 128, 114, 0.2)
-
-	& img
-		margin-right 5px
-
 form
 	input
 		&.rounded
@@ -103,3 +41,64 @@ form
 			border-radius 3px
 			transform rotate(2deg)
 
+#users
+#board
+	user-select none
+
+#nodester
+	position absolute
+	top 20px
+	left 20px
+	width 80px
+	height 80px
+	animation nodester 4s infinite alternate ease-in-out
+
+#users
+	position absolute
+	color #cdc9c9
+	top 20px
+	right 20px
+
+#rotate
+	width 100%
+	height 100%
+	background-image url('/img/nodester.png')
+	background-repeat no-repeat
+
+	&:hover
+		animation rotate 3s infinite alternate ease-in-out
+
+.box_login
+	border 1px dotted #cdc9c9
+	width 240px
+	padding 10px
+	display block
+	margin-left auto
+	margin-right auto
+	border-radius 6px
+
+	& #loading
+		display none
+		position absolute
+		width 50px
+		height 50px
+		background-image url('/img/ajax-loader.gif')
+		background-repeat no-repeat
+
+#alert
+	display none
+	margin-bottom 5px
+	border 1px dotted #b22222
+	background rgba(250, 128, 114, 0.2)
+
+	& img
+		margin-right 5px
+
+.letter
+	position absolute
+	width 20px
+	height 20px
+	cursor pointer
+	
+.user
+	margin-bottom 5px

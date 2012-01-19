@@ -1,15 +1,19 @@
-var mongoose = require('mongoose');
-var express = require('express');
-var stylus = require('stylus');
-var nib = require('nib');
+
+/**
+ * Module dependencies.
+ */
+
+var express = require('express')
+	, routes = require('./routes')
+	, mongoose = require('mongoose')
+	, stylus = require('stylus')
+	, nib = require('nib');
+
 var app = module.exports = express.createServer();
 
-// Static
-var namedefault='panda';
-
 // Mongo
-var mongoose = require('mongoose'),
-    Schema = mongoose.Schema;
+var mongoose = require('mongoose')
+  , Schema = mongoose.Schema;
 
 var BoardSchema = new Schema({
   type  : { type: Number },
@@ -18,16 +22,16 @@ var BoardSchema = new Schema({
   y     : { type: Number }
 });
 
-var db = mongoose.connect('mongodb://localhost/blackboard');
-var model = mongoose.model('Data', BoardSchema);
-var Data = mongoose.model('Data');
+var db = mongoose.connect('mongodb://localhost/blackboard')
+  , model = mongoose.model('Data', BoardSchema)
+  , Data = mongoose.model('Data');
 
-// Express
+// Configuration
 app.configure(function(){
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
-  app.use(express.bodyParser());
-  app.use(express.methodOverride());
+	app.set('views', __dirname + '/views');
+	app.set('view engine', 'jade');
+	app.use(express.bodyParser());
+	app.use(express.methodOverride());
   app.use(express.cookieParser());
   app.use(stylus.middleware({ 
     src: __dirname + '/stylus',
@@ -39,18 +43,18 @@ app.configure(function(){
         .use(nib())
         .import('nib');
       }
-  }));
-  app.use(app.router);
-  app.use(express.static(__dirname + '/public'));
+  }));	
+	app.use(app.router);
+	app.use(express.static(__dirname + '/public'));
 });
 
-/*app.configure('development', function(){
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
+app.configure('development', function(){
+	app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
 });
 
 app.configure('production', function(){
-  app.use(express.errorHandler()); 
-});*/
+	app.use(express.errorHandler()); 
+});
 
 // IO
 var users = {};
@@ -93,11 +97,7 @@ io.sockets.on('connection', function (socket) {
 });
 
 // Routes
-app.get('/', function(req, res){
-  res.render('index', {
-    title: 'Blackboard',
-    user: namedefault+Math.ceil(Math.random()*1000)
-  });
-});
+app.get('/', routes.index);
 
 app.listen(3000);
+console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);

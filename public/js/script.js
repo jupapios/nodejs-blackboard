@@ -1,22 +1,15 @@
-//alert msg
-var e1='Nick taken :(';
-var e2='¬¬"';
-//URL images objects
-var urlimg='/img/objects/'
-var extimg='.png';
+var flag=false
+	, node = {}
+	, socket = io.connect('', {
+		'reconnect': true,
+		'reconnection delay': 500,
+		'max reconnection attempts': 5
+	});
 
-
-var socket = io.connect('', {
-	'reconnect': true,
-	'reconnection delay': 500,
-	'max reconnection attempts': 5
-});
-var flag=false;
-
-socket.on('sign', function(data){
+socket.on('sign', function (data) {
 	if(data.state==0) {
 		$('#user').addClass('rounded_error');
-		err($('.box_login'), e1);
+		node.err($('.box_login'), node.vals.e2);
 	} else {
 		$('#alert').hide('slow');
 		flag=true;
@@ -27,28 +20,32 @@ socket.on('sign', function(data){
 	$('#loading').hide();
 });
 
-socket.on('update', function(data) {
+socket.on('update', function (data) {
 	if(flag) {
 		$('#users').empty();
-		$.each(data, function(key, value) {
+		$.each(data, function (key, value) {
 			$('#users').append('<div class="user">' + key + '</div>');
 		});
 	}
 });
 
-socket.on('objects', function(data){
+socket.on('handle', function (data) {
+	$('#'+data.obj[0]).css({ 'left': data.obj[1]+'px', 'top': data.obj[2]+'px'});
+});
 
-	data.forEach(function(doc){
+socket.on('objects', function (data) {
+
+	data.forEach(function (doc) {
 		var content='';
 		if(doc.type=='0')
-			content='<img src="'+urlimg+doc.value+extimg+'">';
+			content='<img src="'+node.vals.urlimg+doc.value+node.vals.extimg+'">';
 		if(doc.type=='1')
 			content=doc.value;
 		$('#board').append('<div id="'+doc._id+'" class="letter" style="left: '+doc.x+'px; top: '+doc.y+'px;">' + content + '</div>');
 	});
 
 	$(".letter").draggable({
-		drag: function(e, ui) {
+		drag: function (e, ui) {
 			var obj = [
 				$(this).attr('id'),
 				$(this).position().left,
@@ -59,42 +56,44 @@ socket.on('objects', function(data){
 	});
 });
 
-socket.on('handle', function(data) {
-	$('#'+data.obj[0]).css({ 'left': data.obj[1]+'px', 'top': data.obj[2]+'px'});
-});
+node = {
 
-function err(obj, msg) {
-	$('#alert').html('<img src="/img/error.png" />'+msg);
-	$('#alert').show();
-	for(var i=0; i<5; i++)
+	vals: {
+			e1 : 'Nick taken :(',
+			e2 : '¬¬"',
+			urlimg : '/img/objects/',
+			extimg : '.png'
+	},
+
+	init: function () {
+		$(".drag").draggable();
+		$("h1").draggable();
+		$("p").draggable();
+
+		$('#buttom').on('click', function (e) {
+			e.preventDefault();
+			$('#loading').show();
+			if($('#user').val().trim() == '') {
+				$('#user').addClass('rounded_error');
+				node.err($('.box_login'), node.vals.e2);
+				$('#loading').hide();
+			} else {
+				$('#alert').hide('slow');
+				$('#user').removeClass('rounded_error');
+				socket.emit('adduser', $('#user').val());
+			}
+		});		
+	},
+
+	err: function (obj, msg) {
+		$('#alert').html('<img src="/img/error.png" />'+msg);
+		$('#alert').show();
+		for(var i=0; i<5; i++) {
 			obj.animate({"left": '+=12'}, 80).animate({"left": '-=12'}, 80);
-};
+		}
+	}
+}
 
 $(function(){
-
-	$('#nodester').click(function(){
-		//window.location.href = "http://www.nodester.com";
-	});
-
-	$('#buttom').click(function(e){
-		e.preventDefault();
-		$('#loading').show();
-		if($('#user').val().trim() == '') {
-			$('#user').addClass('rounded_error');
-			err($('.box_login'), e2);
-			$('#loading').hide();
-		}
-		else {
-			$('#alert').hide('slow');
-			$('#user').removeClass('rounded_error');
-			socket.emit('adduser', $('#user').val());
-		}
-	});
-
-	$("#nodester").draggable();
-	$(".box_login").draggable();
-	$("h1").draggable();
-	$("p").draggable();
-
-
+	node.init();
 });
