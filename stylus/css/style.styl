@@ -8,17 +8,30 @@ a
 
 form
 	input
+		&#buttom
+			background #59a5d1
+			border-radius 3px
+			border 1px solid #408bb6
+			color #fff
+			cursor pointer
+			height 22px
+			margin-left 130px
+			padding-top 2px
+			text-align middle
+			transform rotate(2deg)
+			width 100px
+	
 		&.rounded
-			border 1px solid #86c9ef
-			outline 0
-			font 14px arial,sans-serif
-			color #445135
-			width 212px
-			height 18px
-			padding 10px 10px 10px 10px
-			margin-bottom 10px
-			box-shadow 2px 2px 3px #666
 			border-radius 4px
+			border 1px solid #86c9ef
+			box-shadow 2px 2px 3px #666
+			color #445135
+			font 14px arial,sans-serif
+			height 18px
+			margin-bottom 10px
+			outline 0
+			padding 10px
+			width 212px
 
 			&:focus
 				border-color #339933
@@ -27,78 +40,61 @@ form
 			border-color #ff0000
 			transform rotate(-2deg)
 
-		&#buttom
-			padding-top 2px
-			margin-left 130px
-			text-align middle
-			width 100px
-			height 22px
-			color #fff
-			cursor pointer
-			border 1px solid #408bb6
-			background #59a5d1
+#alert
+	background rgba(250, 128, 114, 0.2)
+	border 1px dotted #b22222
+	display none
+	margin-bottom 5px
 
-			border-radius 3px
-			transform rotate(2deg)
+	img
+		margin-right 5px
 
-#users
 #board
+#users
 	user-select none
 
 #nodester
-	position absolute
-	top 20px
-	left 20px
-	width 80px
-	height 80px
 	animation nodester 4s infinite alternate ease-in-out
+	height 80px
+	left 20px
+	position absolute
+	top @left
+	width @height
 
 #users
-	position absolute
 	color #cdc9c9
-	top 20px
+	position absolute
 	right 20px
+	top @right
 
 #rotate
-	width 100%
+	background url('/img/nodester.png') no-repeat
 	height 100%
-	background-image url('/img/nodester.png')
-	background-repeat no-repeat
+	width 100%
 
 	&:hover
 		animation rotate 3s infinite alternate ease-in-out
 
 .box_login
-	border 1px dotted #cdc9c9
-	width 240px
-	padding 10px
-	display block
-	margin-left auto
-	margin-right auto
 	border-radius 6px
+	border 1px dotted #cdc9c9
+	display block
+	margin 0 auto
+	padding 10px
+	width 240px
 
-	& #loading
+	#loading
+		background url('/img/ajax-loader.gif') no-repeat
 		display none
-		position absolute
-		width 50px
 		height 50px
-		background-image url('/img/ajax-loader.gif')
-		background-repeat no-repeat
-
-#alert
-	display none
-	margin-bottom 5px
-	border 1px dotted #b22222
-	background rgba(250, 128, 114, 0.2)
-
-	& img
-		margin-right 5px
+		position absolute
+		width @height
 
 .letter
-	position absolute
-	width 20px
-	height 20px
 	cursor pointer
+	height 20px
+	position absolute
+	width @height
 	
 .user
 	margin-bottom 5px

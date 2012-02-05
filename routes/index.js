@@ -4,11 +4,11 @@
  */
 
 // Static
-var namedefault='panda';
+var namedefault = 'panda';
 
 exports.index = function(req, res){
-  res.render('index', {
-	  title: 'Express',
-	  user: namedefault+Math.ceil(Math.random()*1000)
+	res.render('index', {
+		title: 'Nodejs blackboard',
+		user: namedefault+Math.ceil(Math.random()*1000)
 	})
 };

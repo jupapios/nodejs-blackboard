@@ -1,14 +1,14 @@
 {
-    "name": "nodejs-blackboard"
-  , "description": "Gotik test node app"
-  , "version": "0.0.2"
-  , "private": true
-  , "dependencies": {
-      "express": "2.5.5"
-    , "jade": ">= 0.20.0"
-    , "stylus": ">= 0.22.5"
-    , "nib": ">= 0.3.2"
-    , "socket.io" ">= 0.8.7"
-  }
-  , "author": "Juan Pinilla"  
+		"name": "nodejs-blackboard"
+	, "description": "Test nodejs app"
+	, "version": "0.0.3"
+	, "private": true
+	, "dependencies": {
+			"express": "2.5.5"
+		, "jade": ">= 0.20.0"
+		, "stylus": ">= 0.22.5"
+		, "nib": ">= 0.3.2"
+		, "socket.io": ">= 0.8.7"
+	}
+	, "author": "Juan Pinilla"  
 }
