@@ -4,7 +4,6 @@
 namedefault = 'panda'
 
 exports.index = (req, res) ->
-	res.render 'index', {
+	res.render 'index',
 		title: 'Nodejs blackgoard'
 		user: namedefault+Math.ceil(Math.random()*1000)
-	}

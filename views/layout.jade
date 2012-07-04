@@ -1,9 +1,10 @@
-!!!5
+doctype 5
 html
 	head
 		title= title
 		link(rel='stylesheet', href='/css/style.css')
-		script(src='/js/jquery-1.7.1.min.js')
+		script(src='/js/jquery-1.7.2.min.js')
 		script(src='/js/jquery-ui.js')
 		script(src='/socket.io/socket.io.js')
-	body!= body
+	body
+		block content

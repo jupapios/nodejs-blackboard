@@ -5,8 +5,10 @@ routes = require './routes'
 mongoose = require 'mongoose'
 stylus = require 'stylus'
 nib = require 'nib'
+http = require 'http'
 
-app = module.exports = express.createServer()
+
+app = express()
 
 # Moongo
 
@@ -26,8 +28,11 @@ Data = mongoose.model 'Data'
 # Configuration
 
 app.configure () ->
+	app.set 'port', process.env.PORT || 3000
 	app.set 'views', __dirname + '/views'
 	app.set 'view engine', 'jade'
+	app.use express.favicon()
+	app.use express.logger('dev')
 	app.use express.bodyParser()
 	app.use express.methodOverride()
 	app.use express.cookieParser()
@@ -45,15 +50,25 @@ app.configure () ->
 	app.use express.static __dirname + '/public'
 
 app.configure 'development', () ->
-	app.use express.errorHandler { dumpExceptions: true, showStack: true }
-
-app.configure 'production', () ->
 	app.use express.errorHandler()
+
+
+# Routes
+
+app.get '/', routes.index
+
+
+#http.createServer(app).listen app.get('port'), () ->
+#  console.log("Nodejs blackboard running on port " + app.get('port'))
+
+server = app.listen app.get('port'), () ->
+ console.log("Nodejs blackboard running on port " + app.get('port'))
+
 
 # IO
 
 users = {}
-io = require('socket.io').listen app
+io = require('socket.io').listen server
 io.set 'log level', 1
 
 io.sockets.on 'connection', (socket) ->
@@ -80,10 +95,3 @@ io.sockets.on 'connection', (socket) ->
 	socket.on 'disconnect', () ->
 		delete users[socket.user]
 		io.sockets.emit 'update', users
-
-# Routes
-
-app.get '/', routes.index
-
-app.listen 3000
-console.log "Nodejs blackboard running on port %d in %s mode", app.address().port, app.settings.env

@@ -1,15 +1,15 @@
 {
 	  "name": "nodejs-blackboard"
 	, "description": "Test nodejs app"
-	, "version": "0.0.3"
+	, "version": "0.0.4"
 	, "private": true
 	, "dependencies": {
-		  "express": "2.5.5"
-		, "jade": ">= 0.20.0"
-		, "stylus": ">= 0.22.5"
-		, "nib": ">= 0.3.2"
-		, "socket.io": ">= 0.8.7"
+		  "express": ">= 3.0.0"
+		, "jade": ">= 0.26.3"
+		, "stylus": ">= 0.27.2"
+		, "nib": ">= 0.5.0"
+		, "socket.io": ">= 0.9.6"
 		, "mongoose": "*"
 	}
-	, "author": "Juan Pinilla"  
+	, "author": "Juan Pinilla" 
 }

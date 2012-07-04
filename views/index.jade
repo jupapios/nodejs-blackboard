@@ -1,21 +1,24 @@
-#nodester.drag
-	#rotate
-#users
-#board
-#container
-	h1 nodejs experiment
-	p blackboard
-	p author juan pinilla
-	p github 
-		a(href='//github.com/gotik') gotik
-	article#alert.box_login
-	aritcle.box_login.drag
-		form#form(method='post')
-			p Pick some nick
-			p
-				input.rounded#user(value=user, required)
-			p
-				#loading
-				input.rounded#buttom(type="submit", value="continue")
+extends layout
 
-script(src='/js/script.js')
+block content
+	#nodester.drag
+		#rotate
+	#users
+	#board
+	#container
+		h1 nodejs experiment
+		p blackboard
+		p author juan pinilla
+		p github 
+			a(href='//github.com/gotik') gotik
+		article#alert.box_login
+		aritcle.box_login.drag
+			form#form(method='post')
+				p Pick some nick
+				p
+					input.rounded#user(value=user, required)
+				p
+					#loading
+					input.rounded#buttom(type="submit", value="continue")
+
+	script(src='/js/script.js')
